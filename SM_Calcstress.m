@@ -1,6 +1,6 @@
-function OUT = calcstress(sten,pres,angfr,coh)
-%   CALCCFS   Calculates Coulomb Failure Stress
-%       [OUT] = CALCSTRESS(STEN,PRES,ANGFR,COH)
+function OUT = SM_Calcstress(sten,pres,angfr,coh)
+%   SM_CALCCFS   Calculates Coulomb Failure Stress
+%       [OUT] = SM_CALCSTRESS(STEN,PRES,ANGFR,COH)
 % 
 %   Calculates Coulomb Failure Stress (CFS)
 %   

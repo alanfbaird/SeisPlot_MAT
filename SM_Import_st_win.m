@@ -1,6 +1,6 @@
-function gr = SM_Import_st_win(filename)
+function [gr,total] = SM_Import_st_win(filename)
 % 	SM_IMPORTGEOM   Short description
-% 		[GR] = SM_IMPORTSTRESS(FNAME)
+% 		[GR,TOTAL] = SM_IMPORTSTRESS(FNAME)
 % 
 % 	Imports data from Elfen seismic output files
 % 	
