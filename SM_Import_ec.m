@@ -24,10 +24,11 @@ end
 
 intmp=textscan(fid,'%f%f%f%d%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f',total);
 
-gr.x=intmp{1};
-gr.y=intmp{2};
-gr.z=intmp{3};
-gr.ec=cell2mat(intmp(5:25));
-gr.rho=intmp{26};
+%
+gr.x=intmp{1}';
+gr.y=intmp{2}';
+gr.z=intmp{3}';
+gr.ec=cell2mat(intmp(5:25))';
+gr.rho=intmp{26}';
 
 end %  function
