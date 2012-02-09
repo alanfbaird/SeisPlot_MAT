@@ -1,6 +1,6 @@
-function [gr total] = SM_import_ec(filename)
+function [gr] = SM_import_ec(filename)
 % 	SM_IMPORTEC   
-% 		[GR TOTAL] = SM_IMPORT_EC(FILENAME)
+% 		[GR] = SM_IMPORT_EC(FILENAME)
 % 
 % 	Imports dynamic elasticity data from seismodel output
 % 	
@@ -11,7 +11,10 @@ fid = fopen(filename,'r');
 
 
 header=textscan(fid,'%d%d%d%d',1);
-total=header{1};
+gr.total=header{1};
+gr.nx=header{2};
+gr.ny=header{3};
+gr.nz=header{4};
 header=textscan(fid,'%f%f%f%f%f%f',1);
 xmin=header{1}; xmax=header{2}; ymin=header{3}; ymax=header{4}; zmin=header{5}; zmax=header{6};
 header=textscan(fid,'%d%d',1);
@@ -22,7 +25,7 @@ for i=1:nsurf
     %currentLine = fgetl(fid);
 end
 
-intmp=textscan(fid,'%f%f%f%d%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f',total);
+intmp=textscan(fid,'%f%f%f%d%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f%f',gr.total);
 
 %
 gr.x=intmp{1}';
