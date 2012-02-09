@@ -31,6 +31,6 @@ gr.z=intmp{3}';
 gr.ec=cell2mat(intmp(5:25))';
 gr.rho=intmp{26}';
 
-gr.C=SM_calc_ec_matrix_alt(bs1.ec,'eunit','pa');
+gr.C=SM_calc_ec_matrix_alt(gr.ec,'eunit','pa');
 
 end %  function
