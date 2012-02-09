@@ -18,6 +18,7 @@ light;
 lighting phong;
 camlight('left');
 shading interp;
+colorbar;
 axis tight;
 axis equal;
 
