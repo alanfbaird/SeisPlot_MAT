@@ -29,19 +29,19 @@ clear Vp Vs GX GY GZ GV;
 
 
 
-% Find isotropic Thomsen Parameters
-for i=1:test.total
-[eps(i),gam(i),del(i)]=MS_Thomsen(test.C(:,:,i));
-end
-[GX,GY,GZ,GV]=SM_Makegrid(test.x',test.y',test.z',eps',100);
-fign=SM_Plot3d_comp2(GX,GY,GZ,GV,xslice,yslice,zslice,[savename '.eps.eps']);
-[GX,GY,GZ,GV]=SM_Makegrid(test.x',test.y',test.z',gam',100);
-fign=SM_Plot3d_comp2(GX,GY,GZ,GV,xslice,yslice,zslice,[savename '.gam.eps']);
-[GX,GY,GZ,GV]=SM_Makegrid(test.x',test.y',test.z',del',100);
-fign=SM_Plot3d_comp2(GX,GY,GZ,GV,xslice,yslice,zslice,[savename '.del.eps']);
-clear eps gam del GX GY GZ GV;
-
-
+%% Find isotropic Thomsen Parameters
+%for i=1:test.total
+%[eps(i),gam(i),del(i)]=MS_Thomsen(test.C(:,:,i));
+%end
+%[GX,GY,GZ,GV]=SM_Makegrid(test.x',test.y',test.z',eps',100);
+%fign=SM_Plot3d_comp2(GX,GY,GZ,GV,xslice,yslice,zslice,[savename '.eps.eps']);
+%[GX,GY,GZ,GV]=SM_Makegrid(test.x',test.y',test.z',gam',100);
+%fign=SM_Plot3d_comp2(GX,GY,GZ,GV,xslice,yslice,zslice,[savename '.gam.eps']);
+%[GX,GY,GZ,GV]=SM_Makegrid(test.x',test.y',test.z',del',100);
+%fign=SM_Plot3d_comp2(GX,GY,GZ,GV,xslice,yslice,zslice,[savename '.del.eps']);
+%clear eps gam del GX GY GZ GV;
+%
+%
 
 
 
