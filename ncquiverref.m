@@ -211,7 +211,7 @@ y=y(~isnan(x))';
 x=x(~isnan(x))';
 
 % Set arrow size (1= full length of vector)
-arrow=0.40;
+arrow=0.00;
 
 % set the length of the vectors to be constant and generate 
 % a color for each particular vector

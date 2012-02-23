@@ -1,4 +1,4 @@
-function OUT = SM_Calcstress(sten,pres,angfr,coh)
+function [CFS Sdiff smax smin] = SM_Calcstress(sten,pres,angfr,coh)
 %   SM_CALCCFS   Calculates Coulomb Failure Stress
 %       [OUT] = SM_CALCSTRESS(STEN,PRES,ANGFR,COH)
 % 
@@ -23,9 +23,9 @@ smin=min(eval);
 
 q=(smax-smin)/2.0;     % max shear stress
 p=(smax+smin)/2.0;     % mean effective stress
-OUT(1)=q-coh*cos(angfr)-p*sin(angfr);
+CFS=q-coh*cos(angfr)-p*sin(angfr);
 
-OUT(2)=smax-smin;
+Sdiff=smax-smin;
 
 
 

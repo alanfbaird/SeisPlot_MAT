@@ -1,4 +1,4 @@
-function SM_salami_out(fname,Gtop,Glow)
+function SM_salami_out_alt(fname,Gtop,Glow)
 % 	FUNCTIONNAME   Short description
 % 		[] = FUNCTIONNAME(INPUT VARIABLES)
 % 

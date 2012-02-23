@@ -1,4 +1,4 @@
-function [gr,total] = SM_Import_st_win(filename)
+function [gr,nx,ny,nz] = SM_Import_st_win(filename)
 % 	SM_IMPORTGEOM   Short description
 % 		[GR,TOTAL] = SM_IMPORTSTRESS(FNAME)
 % 
@@ -11,6 +11,34 @@ function [gr,total] = SM_Import_st_win(filename)
 fid = fopen(filename,'r');
 
 eof=0
+
+
+% Search for number of cells
+foundNUM = false;
+while ~foundNUM
+	currentLine = fgetl(fid);
+	%check for eof, then 
+	if currentLine == -1
+		eof = true;
+	elseif ~isempty(regexp(currentLine,'^\s+Number_of_cells','match','once'))
+		foundNUM = true
+	end
+end % looking for number of cells
+
+% find number of gridpoints with X coords
+data=textscan(fid,'%f%f%f',1);
+nx=data{1}+1
+ny=data{2}+1
+nz=data{3}+1
+
+gr.nx=nx;
+gr.ny=ny;
+gr.nz=nz;
+gr.total=nx*ny*nz;
+
+
+
+
 
 % Search for X coordinates
 foundX = false;

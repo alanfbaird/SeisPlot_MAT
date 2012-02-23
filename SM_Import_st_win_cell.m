@@ -1,6 +1,6 @@
-function gr = SM_Import_st(filename)
+function [grc,nx,ny,nz] = SM_Import_st_win(filename)
 % 	SM_IMPORTGEOM   Short description
-% 		[GR] = SM_IMPORTSTRESS(FNAME)
+% 		[GR,TOTAL] = SM_IMPORTSTRESS(FNAME)
 % 
 % 	Imports data from Elfen seismic output files
 % 	
@@ -11,6 +11,7 @@ function gr = SM_Import_st(filename)
 fid = fopen(filename,'r');
 
 eof=0
+
 
 % Search for number of cells
 foundNUM = false;
@@ -25,15 +26,13 @@ while ~foundNUM
 end % looking for number of cells
 
 % find number of gridpoints with X coords
-data=textscan(fid,'%f%f%f',1);
+data=textscan(fid,'%d%d%d',1);
 nx=data{1}+1
 ny=data{2}+1
 nz=data{3}+1
 
-gr.nx=nx;
-gr.ny=ny;
-gr.nz=nz;
-gr.total=nx*ny*nz;
+
+
 
 
 % Search for X coordinates
@@ -136,7 +135,7 @@ while ~eof
 		compnum=str2num(attnum(2).val);
 		total=str2num(attnum(3).val);
 		if compnum == 21
-			data=textscan(fid,'%f%f%f%f%f%f\n%f%f%f%f%f%f\n%f%f%f%f%f%f\n%f%f%f',total);
+			data=textscan(fid,'%f%f%f%f%f%f\r\n%f%f%f%f%f%f\r\n%f%f%f%f%f%f\r\n%f%f%f',total);
 			gr.(att)=cell2mat(data);
 		elseif compnum == 6
 			data=textscan(fid,'%f %f %f %f %f %f',total);
@@ -146,6 +145,18 @@ while ~eof
 		break
 	end
 end
+
+fieldnam=fieldnames(gr)
+for i=1:total
+    ix=1+mod(i-1,nx);
+    iy=1+idivide((i-(idivide(i-1,nx*ny))*(nx*ny)-ix),nx);
+    iz=1+idivide((i-1),(nx*ny));
+	for str = fieldnam'
+		grc(ix,iy,iz).(char(str))=gr.(char(str))(i,:);
+	end
+end
+
+
 
 
 end %  function
@@ -192,6 +203,7 @@ end %  function
 %
 %
 %end
-
-
-%end %  function
+%
+%
+%%end %  function
+%

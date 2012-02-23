@@ -27,6 +27,7 @@ for irow = 1:n
            				  -sten(irow,6),        -sten(irow,5),        -sten(irow,3)-pres(irow)     ];
 	
 	[V(:,:,irow),D(:,:,irow)] = eig(estress(:,:,irow));
+	[V(:,:,irow),D(:,:,irow)] =sortem(V(:,:,irow),D(:,:,irow));
 	
 end
 
