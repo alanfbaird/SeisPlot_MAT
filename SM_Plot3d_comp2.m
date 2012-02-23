@@ -14,10 +14,11 @@ function fign=SM_Plot3d_comp2(GX,GY,GZ,GV,xslice,yslice,zslice,printname)
 %hAx(3) = subplot(2,3,[4 5]); copyobj(h,hAx(3)); view(90,0) 
 %hAx(4) = subplot(2,3,6); copyobj(h,hAx(4)); view(0,0)
 
+xlen=GX(1,end,1)-GX(1,1,1)
+ylen=GY(end,1,1)-GY(1,1,1)
+zlen=GZ(1,1,end)-GZ(1,1,1)
 
-
-
-[ylen,xlen,zlen]=size(GX);
+%[ylen,xlen,zlen]=size(GX);
 
 
 yyx=(0.7*ylen)/(ylen+xlen);

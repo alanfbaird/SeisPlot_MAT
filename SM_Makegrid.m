@@ -8,8 +8,8 @@ function [GX,GY,GZ,GV] = SM_Makegrid(x,y,z,v,dx)
 % 	Copyright (c)  . All rights reserved.
 
 % Set grid coordinates (full model range, gris spacing defined by dx)
-xlin=min(x):dx:max(x);
-ylin=min(y):dx:max(y);
+xlin=min(x):3*dx:max(x);
+ylin=min(y):3*dx:max(y);
 zlin=min(z):dx:max(z);
 % Create the grid of coordinates
 [GX,GY,GZ]=meshgrid(xlin,ylin,zlin);
