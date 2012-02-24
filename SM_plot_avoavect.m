@@ -1,4 +1,4 @@
-function fign = SM_plotavoavect(fname,printname)
+function fign = SM_plot_avoavect(fname,printname)
 % 	SM_PLOTAVOAVECT   Short description
 % 		[FIGN] = SM_PLOTAVOAVECT(INPUT VARIABLES)
 % 
@@ -10,7 +10,7 @@ function fign = SM_plotavoavect(fname,printname)
 
 
 
-av=SM_avoa_in2('salami_avoa.dat');
+av=SM_avoa_in2(fname);
 
 [nx,ny]=size(av);
 width=1.0;
@@ -28,11 +28,14 @@ axis equal
 axis tight
 ncquiverref(av.x(1:2:end,1:2:end),av.y(1:2:end,1:2:end),av.amag(1:2:end,1:2:end).*cosd(av.beta(1:2:end,1:2:end)),av.amag(1:2:end,1:2:end).*sind(av.beta(1:2:end,1:2:end)),'',0.5,'false','b')
 colorbar
+set(gca,'CLim',[0 0.6])
 
 if nargin==2
 	hgexport(gcf, printname, ...
 	hgexport('factorystyle'), 'Format', 'epsc');
 end
+
+
 
 
 end %  function

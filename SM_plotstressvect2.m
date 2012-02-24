@@ -60,7 +60,7 @@ contourf(X,Y,sdiff,50,'LineStyle','none');
 
 
 
-ncquiverref(X(1:2:end,1:2:end),Y(1:2:end,1:2:end),ugrid(1:2:end,1:2:end),vgrid(1:2:end,1:2:end),'',100,'false','b')
+ncquiverref(X(1:2:end,1:2:end),Y(1:2:end,1:2:end),ugrid(1:2:end,1:2:end),vgrid(1:2:end,1:2:end),'',50,false,'b')
 axis equal;
 axis tight;
 colorbar

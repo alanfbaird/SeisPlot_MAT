@@ -57,6 +57,7 @@ ncquiverref(X(1:2:end,1:2:end),Y(1:2:end,1:2:end),ugrid(1:2:end,1:2:end),vgrid(1
 axis equal;
 axis tight;
 colorbar
+set(gca,'CLim',[1.0 5.0])
 
 
 if nargin==2
