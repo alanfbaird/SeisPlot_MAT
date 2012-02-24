@@ -1,0 +1,34 @@
+interfacefile='/Users/alanbaird/Dropbox/Seismodel-Chinook/Seismodel-Geomech/Chinook/chnk_move_HP/topres.mat'
+
+load(interfacefile);
+
+ind=uint8(out);
+
+
+
+
+cd 
+
+
+fname=
+
+savename=
+
+
+
+
+
+
+
+
+
+fname='chnk_move_HP_explicit_seismic_bsp.6.out'
+test=SM_import_ec_cell(fname);
+[top,bot]=SM_array_top_bot(test(2:end-1,2:end-1,:),ind);
+SM_salami_out('salami_in.txt',top,bot);
+figure
+av=SM_avoa_in2('salami_avoa.dat');
+contourf(av.amag',50,'LineStyle','none');
+axis equal
+axis tight
+ncquiverref(av.x(1:2:end,1:2:end),av.y(1:2:end,1:2:end),av.amag(1:2:end,1:2:end).*cosd(av.beta(1:2:end,1:2:end)),av.amag(1:2:end,1:2:end).*sind(av.beta(1:2:end,1:2:end)),'',1,'false','y')
