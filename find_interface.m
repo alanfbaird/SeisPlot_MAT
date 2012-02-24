@@ -3,7 +3,8 @@
 [nx,ny,nz]=size(TY)
 
 
-pattern=[3 2]
+%pattern=[3 2]
+pattern=[2 4]
 
 out=NaN(nx,ny);
 

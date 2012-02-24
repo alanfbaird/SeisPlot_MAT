@@ -16,11 +16,6 @@ total=nx*ny;
 list=reshape(Gr,1,total)
 
 
-
-
-
-
-
 width=1.0;
 height=1.0*ny/nx
 scale=800;
